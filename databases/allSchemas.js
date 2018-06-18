@@ -33,6 +33,7 @@ export const insertNewTodoList = newTodoList => new Promise((resolve, reject) =>
         realm.write(() =>{
             realm.create(TODOLISTSCHEMA, newTodoList);
             resolve(newTodoList);
+            
         });
     }).catch((error) => reject(error));
 });
@@ -58,7 +59,7 @@ export const deleteTodoList = todoListId => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 //Delete all
-export const allDeleteTodoList = todoListId => new Promise((resolve, reject) => {
+export const allDeleteTodoLists = todoListId => new Promise((resolve, reject) => {
     Realm.open(databaseOptions).then(realm =>{
         realm.write(() => {
             let allDeletingTodoList = realm.objectForPrimaryKey(TODOLISTSCHEMA);
@@ -68,7 +69,7 @@ export const allDeleteTodoList = todoListId => new Promise((resolve, reject) => 
     }).catch((error) => reject(error));
 });
 //??????
-export const queryAllTodoList = () => new Promise((resolve, reject) => {
+export const queryAllTodoLists = () => new Promise((resolve, reject) => {
     Realm.open(databaseOptions).then(realm => {
         let allTodoList = realm.objects(TODOLISTSCHEMA);
         resolve(allTodoList);
