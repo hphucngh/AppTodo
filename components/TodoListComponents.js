@@ -3,7 +3,7 @@ import {Platform, FlatList, StyleSheet, Text, View, TouchableOpacity, Alert, App
 import {updateTodoList, deleteTodoList, queryAllTodoLists} from '../databases/allSchemas'
 import realm from '../databases/allSchemas';
 import Swipeout from 'react-native-swipeout';
-import HeadersComponent from './HeadersComponent';
+import HeaderComponent from './HeaderComponent';
 import PopupDialogComponent from './PopupDialogComponent';
 
 let FlatListItem = props =>{
@@ -74,7 +74,7 @@ export default class TodoListComponents extends Component{
     render(){
         return (
             <View style = {styles.container}>
-                <HeadersComponent
+                <HeaderComponent
                     title = {"Todo List"}
                     hasAddButton={true}
                     showAddTodoList={

@@ -18,22 +18,21 @@ export const TodoListSchema = {
     properties:{
         id: 'int',
         name: 'string',
-        creationData: 'date',
+        creationDate: 'date',
         todos: { type: 'list', objectType: TODOSCHEMA},
     }
 };
 
 const databaseOptions = {
-    path: 'todoListApp.realm',
+    path: 'AppTodo.realm',
     schema: [TodoListSchema, TodoSchema],
     schemaVersion: 0,
 };
-export const insertNewTodoList = newTodoList => new Promise((resolve, reject) =>{
+export const insertNewTodoList = (newTodoList) => new Promise((resolve, reject) =>{ 
     Realm.open(databaseOptions).then(realm =>{
         realm.write(() =>{
             realm.create(TODOLISTSCHEMA, newTodoList);
             resolve(newTodoList);
-            
         });
     }).catch((error) => reject(error));
 });

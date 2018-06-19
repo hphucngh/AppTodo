@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import TotoListComponents from './components/TotoListComponents';
+import TodoListComponents from './components/TodoListComponents';
 
-AppRegistry.registerComponent('AppTodo', () => TotoListComponents);
+AppRegistry.registerComponent('AppTodo', () => TodoListComponents);
